@@ -5,42 +5,86 @@ import { useState } from "react";
 
 function VisaPage() {
   // Contexto
-  const { visa, setVisa } = useVisa();
+  const { visas, addVisa } = useVisa();
 
   // Variables - Estado
+  const [formData, setFormData] = useState({
+    numerVisa: "",
+    name: "",
+    date: "",
+    cvv: "",
+  });
+
   const [errorMessage, setErrorMessage] = useState("");
 
   // Funciones
   function handleChange(e) {
+    cleanAlert();
+
     const { name, value } = e.target;
+    let newValue = value;
 
-    let newValue;
-
-    // Filtrar los valores no numéricos
     if (name === "numerVisa") {
-      // Filtrar los valores no numéricos y limitar a 15 caracteres
-      newValue = value.replace(/[^\d]/g, "").slice(0, 15);
+      newValue = value.replace(/[^\d]/g, "").slice(0, 16);
     } else if (name === "name") {
       newValue = value
-        .replace(/[^a-zA-Z\sáéíóúÁÉÍÓÚüÜñÑ´`]/g, "")
+        .replace(/[^a-zA-Z\sáéíóúÁÉÍÓÚüÜñÑ]/g, "")
         .slice(0, 30)
         .toUpperCase();
-    } else if (name === "date") {
-      newValue = value;
     } else if (name === "cvv") {
       newValue = value.replace(/[^\d]/g, "").slice(0, 4);
     }
 
-    setVisa((prevState) => ({
-      ...prevState,
-      [name]: newValue,
-    }));
+    // Para date no se aplica filtro
 
-    console.log(visa);
+    setFormData((prev) => ({ ...prev, [name]: newValue }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // Validar campos obligatorios
+    if (
+      !formData.numerVisa ||
+      !formData.name ||
+      !formData.date ||
+      !formData.cvv
+    ) {
+      setErrorMessage("Todos los campos son obligatorios");
+      return;
+    }
+
+    // Validar largo de numero de tarjeta
+    if (formData.numerVisa.length !== 16) {
+      setErrorMessage("El número de tarjeta debe tener 16 dígitos");
+      return;
+    }
+
+    // Validar largo de numero de cvv
+    if (formData.cvv.length !== 4) {
+      setErrorMessage("El número de cvv debe ser 4 dígitos");
+      return;
+    }
+
+    // Agregar la nueva visa al array del contexto
+    addVisa(formData);
+
+    // Limpiar formulario y mensaje de error
+    setFormData({
+      numerVisa: "",
+      name: "",
+      date: "",
+      cvv: "",
+    });
+  }
+
+  function cleanAlert() {
+    setErrorMessage("");
   }
 
   return (
     <div className="contenedor">
+      {/* Vista previa de la tarjeta (puedes mostrar la última agregada o la que se está escribiendo) */}
       <div className="contenedor-tarjeta">
         <p className="logo">
           <img src={chipIMG} alt="" />
@@ -48,16 +92,14 @@ function VisaPage() {
         <p className="visa">
           <img src={visaIMG} alt="" />
         </p>
-        <p id="tarjeta">{visa.numerVisa}</p>
-
+        <p id="tarjeta">{formData.numerVisa || "**** **** **** ****"}</p>
         <div className="nombre-contenedor">
           <p className="titulo">NOMBRE:</p>
-          <p id="nombreVisa">{visa.name}</p>
+          <p id="nombreVisa">{formData.name || ""}</p>
         </div>
-
         <div className="valido-contenedor">
           <p className="titulo">VÁLIDO HASTA:</p>
-          <p id="validoVisa">{visa.date}</p>
+          <p id="validoVisa">{formData.date || ""}</p>
         </div>
       </div>
 
@@ -65,8 +107,7 @@ function VisaPage() {
 
       <div className="container-form">
         <div className="espacio"></div>
-
-        <form id="formulario">
+        <form id="formulario" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="numero">Número de tarjeta</label>
             <input
@@ -74,8 +115,7 @@ function VisaPage() {
               id="numero"
               name="numerVisa"
               placeholder="4568 4958 5049 4839"
-              value={visa.numerVisa || ""}
-              // oninput="if(this.value.length >= 16) this.value = this.value.slice(0, 16); this.value = this.value.replace(/[^\d]/g, '');"
+              value={formData.numerVisa}
               onChange={handleChange}
             />
           </div>
@@ -88,14 +128,20 @@ function VisaPage() {
               name="name"
               placeholder="Nombre del usuario"
               autoComplete="off"
-              value={visa.name || ""}
+              value={formData.name}
               onChange={handleChange}
             />
           </div>
 
           <div className="form-group">
             <label htmlFor="fecha">Fecha vencimiento</label>
-            <input type="date" id="fecha" name="date" onChange={handleChange} />
+            <input
+              type="date"
+              id="fecha"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="form-group">
@@ -105,21 +151,18 @@ function VisaPage() {
               id="cvv"
               name="cvv"
               placeholder="cvv"
-              value={visa.cvv || ""}
-              // onInput="if(this.value.length >= 4) this.value = this.value.slice(0, 4); this.value = this.value.replace(/[^\d]/g, '');"
+              value={formData.cvv}
               onChange={handleChange}
             />
           </div>
 
           <div className="form-group">
             <button type="submit" className="boton">
-              Generar
+              Agregar tarjeta
             </button>
           </div>
         </form>
-
-        {/* <p className="error">Todos los datos son obligatorios</p>
-        <p className="correcto">Correcto</p> */}
+        {errorMessage && <p className="error">{errorMessage}</p>}
       </div>
     </div>
   );
