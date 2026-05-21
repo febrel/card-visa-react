@@ -3,11 +3,11 @@ import viewIMG from "../assets/ver.png";
 
 function Records() {
   return (
-    <div class="container-table">
-      <div class="content-tarj">
-        <div class="contenido-vis">
-          <div class="cont-titulo">
-            <p class="opaco">Total de visas </p>
+    <div className="container-table">
+      <div className="content-tarj">
+        <div className="content-vis">
+          <div className="cont-title">
+            <p className="opaco">Total de visas </p>
             <p>
               <img src={viewIMG} alt="Ver" />
             </p>
@@ -17,7 +17,7 @@ function Records() {
         </div>
       </div>
 
-      <div class="table-estructura">
+      <div className="table-structure">
         <table id="table-visas">
           <caption>Tabla de Visas</caption>
 
@@ -32,11 +32,11 @@ function Records() {
           </thead>
           <tbody>
             <tr>
-              <td>Raza</td>
-              <td>Jack Russell</td>
-              <td>Caniche</td>
-              <td>Caniche</td>
-              <td class="acciones">
+              <td>129043849847578</td>
+              <td>LUIS FEBRE PAUCAR</td>
+              <td>2026-05-15</td>
+              <td>0493</td>
+              <td className="acciones">
                 <a href="generar.html?id=${id}" class="edit-acc">
                   Editar
                 </a>

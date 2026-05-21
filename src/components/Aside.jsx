@@ -2,6 +2,7 @@ import React from "react";
 import progress1IMG from "../assets/cards/progress-1.webp";
 import progress2IMG from "../assets/cards/progress-2.webp";
 import progress3IMG from "../assets/cards/progress-3.webp";
+import imagenFondo from "../assets/fondo.png";
 
 function Aside() {
   return (
@@ -9,13 +10,13 @@ function Aside() {
       <div className="contenedor-cards">
         <div class="card">
           <div class="card-cabezera">
-            <div class="contenedor-imagen">
+            <div class=".container-image">
               <img src={progress1IMG} alt="Imagen 1" />
             </div>
 
-            <div class="contenedor-info">
-              <p class="titulo-card">Más de</p>
-              <p class="titulo-numero">23754</p>
+            <div class="container-info">
+              <p class="title-card">Más de</p>
+              <p class="title-numer">23754</p>
               <p class="titulo-desc">Tarjetas emitidas</p>
             </div>
           </div>
@@ -30,13 +31,13 @@ function Aside() {
 
         <div class="card">
           <div class="card-cabezera">
-            <div class="contenedor-imagen">
+            <div class=".container-image">
               <img src={progress1IMG} alt="Imagen 2" />
             </div>
 
-            <div class="contenedor-info">
-              <p class="titulo-card">Hasta un</p>
-              <p class="titulo-numero">30%</p>
+            <div class="container-info">
+              <p class="title-card">Hasta un</p>
+              <p class="title-numer">30%</p>
               <p class="titulo-desc">De rembolsos</p>
             </div>
           </div>
@@ -52,13 +53,13 @@ function Aside() {
 
         <div class="card">
           <div class="card-cabezera">
-            <div class="contenedor-imagen">
+            <div class=".container-image">
               <img src={progress2IMG} alt="Imagen 3" />
             </div>
 
-            <div class="contenedor-info">
-              <p class="titulo-card">Hasta un</p>
-              <p class="titulo-numero">25%</p>
+            <div class="container-info">
+              <p class="title-card">Hasta un</p>
+              <p class="title-numer">25%</p>
               <p class="titulo-desc">En depositos</p>
             </div>
           </div>
@@ -73,7 +74,7 @@ function Aside() {
         </div>
       </div>
 
-      <div class="contenido-aside">
+      <div class="content-aside">
         <p class="bar">|</p>
         <h2>La mejor opción bancaria</h2>
         <p class="aside-text">

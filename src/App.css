@@ -119,20 +119,20 @@ body {
   margin-top: 10px;
 }
 
-.contenedor-imagen {
+.container-image {
   margin-right: 10px;
 }
 
-.contenedor-info p {
+.container-info p {
   margin-bottom: 5px;
 }
 
-.titulo-card {
+.title-card {
   font-size: 14px;
   opacity: 0.6;
 }
 
-.titulo-numero {
+.title-numer {
   font-size: 30px;
 }
 
@@ -147,14 +147,14 @@ body {
   letter-spacing: 1px;
 }
 
-.contenido-aside {
+.content-aside {
   margin: 0 auto;
   text-align: center;
   color: #fff;
   width: 800px;
 }
 
-.contenido-aside .bar {
+.content-aside .bar {
   font-size: 50px;
   margin: 10px 0;
 
@@ -172,12 +172,12 @@ body {
   -webkit-animation-iteration-count: infinite;
 }
 
-.contenido-aside h2 {
+.content-aside h2 {
   font-size: 40px;
   margin-bottom: 15px;
 }
 
-.contenido-aside .aside-text {
+.content-aside .aside-text {
   font-size: 18px;
   letter-spacing: 1px;
   line-height: 1.5;
@@ -233,28 +233,28 @@ body {
   justify-self: center;
 }
 
-.cont-titulo {
+.cont-title {
   display: flex;
   align-items: center;
   justify-content: baseline;
   gap: 10px;
 }
 
-.cont-titulo .opaco {
+.cont-title .opaco {
   color: #6d798e;
 }
 
-.cont-titulo img {
+.cont-title img {
   width: 25px;
   height: 25px;
 }
 
-.contenido-vis #numero-visas {
+.content-vis #numero-visas {
   font-size: 30px;
   text-align: center;
 }
 
-.table-estructura {
+.table-structure {
   grid-area: tabla;
   justify-self: center;
 }
@@ -321,4 +321,224 @@ tbody td {
 
 .acciones .elim-acc:hover {
   opacity: 0.7;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	Tarjeta
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  background: #b8ddd1;
+  background: -webkit-linear-gradient(to right, #dbcf9f, #b8ddd1);
+  background: linear-gradient(to right, #dbcf9f, #b8ddd1);
+}
+
+.error {
+  width: auto;
+  background-color: #faa0a0;
+  color: #3e3b37;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #f53838;
+  border-radius: 5px;
+}
+
+.correcto {
+  width: auto;
+  background-color: #a4e5de;
+  color: #3e3b37;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #03a052;
+  border-radius: 5px;
+}
+
+.logo img {
+  width: 45px;
+}
+
+.visa img {
+  width: 60px;
+}
+
+.titulo {
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+#nombreVisa {
+  margin-top: 2px;
+  font-size: 18px;
+}
+
+#validoVisa {
+  margin-top: 2px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.contenedor-tarjeta {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  background-color: #bd6772;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: #fff;
+
+  display: grid;
+  grid-template-areas:
+    "icono1 .  icono2"
+    "tarjeta tarjeta tarjeta"
+    "nombre . valido";
+  z-index: 1;
+}
+
+.contenedor-tarjeta::before {
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  content: "";
+  background-image: url("assets/fondo.png");
+  opacity: 0.5;
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  grid-area: icono1;
+  justify-self: start;
+  margin: 0;
+  z-index: 1;
+}
+
+.visa {
+  grid-area: icono2;
+  justify-self: end;
+  margin: 0;
+  z-index: 1;
+}
+
+#tarjeta {
+  grid-area: tarjeta;
+  font-size: 2.9rem;
+  justify-self: center;
+  z-index: 1;
+}
+
+.nombre-contenedor {
+  grid-area: nombre;
+  align-self: center;
+  z-index: 1;
+}
+
+.valido-contenedor {
+  grid-area: valido;
+  justify-self: end;
+  align-self: center;
+  z-index: 1;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	Formulario
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.container-form {
+  position: relative;
+  background-color: #fff;
+  top: -60px;
+  border-radius: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.espacio {
+  width: 100%;
+  height: 60px;
+}
+
+#formulario {
+  width: 600px;
+  height: 350px;
+  padding: 10px;
+
+  display: grid;
+  grid-template-areas:
+    "uno uno  uno"
+    "dos dos dos"
+    "tres . cuatro"
+    ". cinco .";
+}
+
+.form-group label {
+  opacity: 0.6;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+button {
+  width: 200px;
+  height: 40px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #bd6772, #53223f);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid #bd6772;
+}
+
+.form-group:nth-child(1) {
+  grid-area: uno;
+  align-self: center;
+}
+
+.form-group:nth-child(2) {
+  grid-area: dos;
+  align-self: center;
+}
+
+.form-group:nth-child(3) {
+  grid-area: tres;
+  align-self: center;
+}
+
+.form-group:nth-child(4) {
+  grid-area: cuatro;
+  align-self: center;
+}
+
+.form-group:nth-child(5) {
+  grid-area: cinco;
+  align-self: flex-end;
 }
