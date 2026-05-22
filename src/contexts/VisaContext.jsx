@@ -7,8 +7,6 @@ function VisaProviderWrapper(props) {
   /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	Variables - Estado
   :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-  // Contexto
-  const { lenVistas } = useVisa();
 
   // Estado: ahora es un array
   const [visas, setVisas] = useState(() => {
