@@ -23,6 +23,7 @@ function VisaProviderWrapper(props) {
     sincronizarStorage(nuevaLista);
   }
 
+  // delete
   function deleteVisa(idVisa) {
     let arrayNuevo = [];
 
@@ -33,6 +34,18 @@ function VisaProviderWrapper(props) {
     sincronizarStorage(arrayNuevo);
   }
 
+  // update
+  function updateVisa(id, datosActualizados) {
+    const nuevaLista = visas.map((visa) => {
+      if (visa.id === id) {
+        return { ...visa, ...datosActualizados };
+      }
+      return visa;
+    });
+
+    sincronizarStorage(nuevaLista);
+  }
+
   function lenVistas() {
     const countVistas = Object.keys(visas).length;
 
@@ -40,7 +53,9 @@ function VisaProviderWrapper(props) {
   }
 
   return (
-    <VisaContext.Provider value={{ visas, addVisa, lenVistas, deleteVisa }}>
+    <VisaContext.Provider
+      value={{ visas, addVisa, lenVistas, deleteVisa, updateVisa }}
+    >
       {props.children}
     </VisaContext.Provider>
   );

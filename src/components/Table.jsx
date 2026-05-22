@@ -1,11 +1,13 @@
 import React from "react";
 import { useVisa } from "../contexts/VisaContext";
+import { useNavigate } from "react-router-dom";
 
 function Table() {
   // Contexto
   const { visas, deleteVisa } = useVisa();
 
   // Variables - Estado
+  const navigate = useNavigate(); // Navega
   const visasHTML = visas.map((item) => {
     return (
       <tr key={item.id}>
@@ -14,7 +16,12 @@ function Table() {
         <td>{item.date}</td>
         <td>{item.cvv}</td>
         <td className="acciones">
-          <a href="generar.html?id=${id}" className="edit-acc">
+          <a
+            onClick={() => {
+              navigate("/visa", { state: { id: item.id } });
+            }}
+            className="edit-acc"
+          >
             Editar
           </a>
           <a onClick={() => deleteVisa(item.id)} className="elim-acc">

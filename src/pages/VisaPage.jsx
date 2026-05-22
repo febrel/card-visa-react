@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useVisa } from "../contexts/VisaContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import chipIMG from "../assets/chip.png";
 import visaIMG from "../assets/visa.png";
 
 function VisaPage() {
-  // Contexto
-  const { visas, addVisa } = useVisa();
-
   // Variables - Estado
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Navega
+  const location = useLocation(); // Hook para acceder al estado
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     numerVisa: "",
@@ -17,6 +15,27 @@ function VisaPage() {
     date: "",
     cvv: "",
   });
+
+  // Contexto
+  const { visas, addVisa, updateVisa } = useVisa();
+
+  // Extraemos el id desde location.state
+  const id = location.state?.id;
+
+  // Efecto para cargar si esta editando
+  useEffect(() => {
+    if (id) {
+      // Buscamos la visa que coincida con el ID de la URL
+      const visaAEditar = visas.find((v) => {
+        return v.id === parseInt(id);
+      });
+
+      // si encuentra algo lo edita
+      if (visaAEditar) {
+        setFormData(visaAEditar);
+      }
+    }
+  }, [id, visas]);
 
   // Funciones
   function handleChange(e) {
@@ -70,13 +89,13 @@ function VisaPage() {
     // Agregar la nueva visa al array del contexto
     addVisa(formData);
 
-    // Limpiar formulario y mensaje de error
-    setFormData({
-      numerVisa: "",
-      name: "",
-      date: "",
-      cvv: "",
-    });
+    if (id) {
+      // Modo edicion
+      updateVisa(parseInt(id), formData);
+    } else {
+      // Modo creacion
+      addVisa(formData);
+    }
 
     navigate("/");
   }
@@ -87,7 +106,6 @@ function VisaPage() {
 
   return (
     <div className="contenedor">
-      {/* Vista previa de la tarjeta (puedes mostrar la última agregada o la que se está escribiendo) */}
       <div className="contenedor-tarjeta">
         <p className="logo">
           <img src={chipIMG} alt="" />
