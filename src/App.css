@@ -493,7 +493,7 @@ tbody td {
   padding: 0 10px;
 }
 
-button {
+.boton {
   width: 200px;
   height: 40px;
   font-size: 18px;
@@ -505,7 +505,7 @@ button {
   transition: transform 0.1s;
 }
 
-button:active {
+.boton:active {
   transform: scale(0.98);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

@@ -3,7 +3,7 @@ import { useVisa } from "../contexts/VisaContext";
 
 function Table() {
   // Contexto
-  const { visas } = useVisa();
+  const { visas, deleteVisa } = useVisa();
 
   // Variables - Estado
   const visasHTML = visas.map((item) => {
@@ -17,7 +17,7 @@ function Table() {
           <a href="generar.html?id=${id}" className="edit-acc">
             Editar
           </a>
-          <a href="#" data-cliente="${id}" className="elim-acc">
+          <a onClick={() => deleteVisa(item.id)} className="elim-acc">
             Eliminar
           </a>
         </td>
