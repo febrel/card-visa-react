@@ -5,7 +5,10 @@ import chipIMG from "../assets/chip.png";
 import visaIMG from "../assets/visa.png";
 
 function VisaPage() {
-  // Variables - Estado
+  /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	Variables - Estado
+  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
   const navigate = useNavigate(); // Navega
   const location = useLocation(); // Hook para acceder al estado
   const [errorMessage, setErrorMessage] = useState("");
@@ -37,7 +40,9 @@ function VisaPage() {
     }
   }, [id, visas]);
 
-  // Funciones
+  /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	  Funciones
+  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
   function handleChange(e) {
     cleanAlert();
 
@@ -56,7 +61,6 @@ function VisaPage() {
     }
 
     // Para date no se aplica filtro
-
     setFormData((prev) => ({ ...prev, [name]: newValue }));
   }
 

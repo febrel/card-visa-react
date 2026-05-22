@@ -6,7 +6,9 @@ function Table() {
   // Contexto
   const { visas, deleteVisa } = useVisa();
 
-  // Variables - Estado
+  /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	Variables - Estado
+  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
   const navigate = useNavigate(); // Navega
   const visasHTML = visas.map((item) => {
     return (

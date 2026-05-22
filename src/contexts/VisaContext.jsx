@@ -4,6 +4,12 @@ import { createContext, useState, useContext } from "react";
 const VisaContext = createContext();
 
 function VisaProviderWrapper(props) {
+  /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	Variables - Estado
+  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+  // Contexto
+  const { lenVistas } = useVisa();
+
   // Estado: ahora es un array
   const [visas, setVisas] = useState(() => {
     // Cargar datos guardados al iniciar
@@ -11,7 +17,11 @@ function VisaProviderWrapper(props) {
     return stored ? JSON.parse(stored) : [];
   });
 
-  // Guardar en localStorage cada vez que visas cambie
+  /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	Funciones
+  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+  // Guardar en localStorage
   function sincronizarStorage(nuevoArray) {
     localStorage.setItem("visas", JSON.stringify(nuevoArray));
     setVisas(nuevoArray);
@@ -48,7 +58,6 @@ function VisaProviderWrapper(props) {
 
   function lenVistas() {
     const countVistas = Object.keys(visas).length;
-
     return countVistas;
   }
 
