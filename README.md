@@ -1,16 +1,13 @@
-# React + Vite
+# Visa Generator (React + LocalStorage CRUD)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic, front-end React application designed to simulate, validate, and manage credit/debit card data (specifically structured around Visa card specifications). The application provides a complete CRUD (Create, Read, Update, Delete) workflow, using the browser's localStorage for persistent data management without the need for an external database.
 
-Currently, two official plugins are available:
+<img width="1447" height="755" alt="image" src="https://github.com/user-attachments/assets/53e49852-7799-4c71-a801-69f8b89d59cd" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+-Frontend Library: React (Functional Components & Hooks)
+- State Management: React Context API
+- Storage: Web Storage API (localStorage)
+- Styling: Responsive CSS / Tailored UI components
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img width="1429" height="746" alt="image" src="https://github.com/user-attachments/assets/19c25be6-a9f2-477d-ac57-9a1245376ffb" />
