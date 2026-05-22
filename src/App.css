@@ -206,7 +206,7 @@ body {
 
 .container-table {
   background-color: #f1f1f8;
-  padding: 20px;
+  padding: 30px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -17,14 +17,20 @@ function VisaProviderWrapper(props) {
     setVisas(nuevoArray);
   }
 
-  // Función para agregar una nueva visa
+  // add
   function addVisa(nuevaVisa) {
     const nuevaLista = [...visas, { ...nuevaVisa, id: Date.now() }];
     sincronizarStorage(nuevaLista);
   }
 
+  function lenVistas() {
+    const countVistas = Object.keys(visas).length;
+
+    return countVistas;
+  }
+
   return (
-    <VisaContext.Provider value={{ visas, addVisa }}>
+    <VisaContext.Provider value={{ visas, addVisa, lenVistas }}>
       {props.children}
     </VisaContext.Provider>
   );

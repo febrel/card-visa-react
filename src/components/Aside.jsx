@@ -8,20 +8,20 @@ function Aside() {
   return (
     <div className="container-aside">
       <div className="contenedor-cards">
-        <div class="card">
-          <div class="card-cabezera">
-            <div class=".container-image">
+        <div className="card">
+          <div className="card-cabezera">
+            <div className=".container-image">
               <img src={progress1IMG} alt="Imagen 1" />
             </div>
 
-            <div class="container-info">
-              <p class="title-card">Más de</p>
-              <p class="title-numer">23754</p>
-              <p class="titulo-desc">Tarjetas emitidas</p>
+            <div className="container-info">
+              <p className="title-card">Más de</p>
+              <p className="title-numer">23754</p>
+              <p className="titulo-desc">Tarjetas emitidas</p>
             </div>
           </div>
 
-          <div class="card-content">
+          <div className="card-content">
             <p>
               Nuestro banco es un líder reconocido en la distribución de
               tarjetas de crédito. Emitimos más de 5000 tarjetas al año.
@@ -29,20 +29,20 @@ function Aside() {
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-cabezera">
-            <div class=".container-image">
+        <div className="card">
+          <div className="card-cabezera">
+            <div className=".container-image">
               <img src={progress1IMG} alt="Imagen 2" />
             </div>
 
-            <div class="container-info">
-              <p class="title-card">Hasta un</p>
-              <p class="title-numer">30%</p>
-              <p class="titulo-desc">De rembolsos</p>
+            <div className="container-info">
+              <p className="title-card">Hasta un</p>
+              <p className="title-numer">30%</p>
+              <p className="titulo-desc">De rembolsos</p>
             </div>
           </div>
 
-          <div class="card-content">
+          <div className="card-content">
             <p>
               Ofrecemos una increíble cantidad de reembolso en efectivo por
               pagos realizados con una de nuestras tarjetas de crédito: Azul,
@@ -51,20 +51,20 @@ function Aside() {
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-cabezera">
-            <div class=".container-image">
+        <div className="card">
+          <div className="card-cabezera">
+            <div className=".container-image">
               <img src={progress2IMG} alt="Imagen 3" />
             </div>
 
-            <div class="container-info">
-              <p class="title-card">Hasta un</p>
-              <p class="title-numer">25%</p>
-              <p class="titulo-desc">En depositos</p>
+            <div className="container-info">
+              <p className="title-card">Hasta un</p>
+              <p className="title-numer">25%</p>
+              <p className="titulo-desc">En depositos</p>
             </div>
           </div>
 
-          <div class="card-content">
+          <div className="card-content">
             <p>
               Banque ofrece diversos depósitos en todas las monedas
               internacionales con tasas de interés de hasta el 25% para todos
@@ -74,10 +74,10 @@ function Aside() {
         </div>
       </div>
 
-      <div class="content-aside">
-        <p class="bar">|</p>
+      <div className="content-aside">
+        <p className="bar">|</p>
         <h2>La mejor opción bancaria</h2>
-        <p class="aside-text">
+        <p className="aside-text">
           Desde nuestra fundación, hemos sido la institución bancaria número uno
           para numerosos clientes particulares y empresas, tanto en EE. UU. como
           a nivel internacional. Ofrecemos a nuestros clientes una amplia gama

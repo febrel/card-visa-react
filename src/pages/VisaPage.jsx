@@ -1,21 +1,22 @@
+import { useState } from "react";
 import { useVisa } from "../contexts/VisaContext";
+import { useNavigate } from "react-router-dom";
 import chipIMG from "../assets/chip.png";
 import visaIMG from "../assets/visa.png";
-import { useState } from "react";
 
 function VisaPage() {
   // Contexto
   const { visas, addVisa } = useVisa();
 
   // Variables - Estado
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     numerVisa: "",
     name: "",
     date: "",
     cvv: "",
   });
-
-  const [errorMessage, setErrorMessage] = useState("");
 
   // Funciones
   function handleChange(e) {
@@ -76,6 +77,8 @@ function VisaPage() {
       date: "",
       cvv: "",
     });
+
+    navigate("/");
   }
 
   function cleanAlert() {
